@@ -52,7 +52,7 @@ Callback = Callable[..., Any]
 
 
 def each(tuple_or_dict: IndexedObject, callback: Callback):
-    if isinstance(tuple_or_dict, tuple):
+    if isinstance(tuple_or_dict, (list, tuple)):
         for value in tuple_or_dict:
             callback(value)
     else:
