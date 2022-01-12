@@ -56,12 +56,12 @@ IndexedObject = Union[VisitableMap, Tuple[V, ...]]
 Callback = Callable[..., Any]
 
 
-def each(tuple_or_dict: IndexedObject, callback: Callback):
-    if isinstance(tuple_or_dict, tuple):
-        for value in tuple_or_dict:
+def each(list_or_dict: IndexedObject, callback: Callback):
+    if isinstance(list_or_dict, (list, tuple)):
+        for value in list_or_dict:
             callback(value)
     else:
-        for key, value in tuple_or_dict.items():
+        for key, value in list_or_dict.items():
             callback(value, key)
 
 
