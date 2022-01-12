@@ -59,7 +59,7 @@ def make_federated_schema(
     directives: Optional[Dict[str, Type[SchemaDirectiveVisitor]]] = None,
     convert_names_case: Union[bool, SchemaNameConverter] = False,
 ) -> GraphQLSchema:
-    if isinstance(type_defs, list):
+    if isinstance(type_defs, (list, tuple)):
         type_defs = join_type_defs(type_defs)
 
     # Remove custom schema directives (to avoid apollo-gateway crashes).
